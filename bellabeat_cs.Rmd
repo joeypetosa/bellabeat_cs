@@ -2813,7 +2813,7 @@ includes:
 * Supporting visualizations and key findings  
 * Recommendations for marketing strategy within the Bellabeat App
 
-[Insert link here](tbd)
+[Google Slides; requires onl;ine access](https://docs.google.com/presentation/d/1iUSOOkS2ltHPzK16cE9teWgOwfBGd1UAC1KaZ_ucew4/present?slide=id.p)
 
 ## Further exploration  
 
