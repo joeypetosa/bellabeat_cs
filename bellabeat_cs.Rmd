@@ -202,22 +202,22 @@ RAM in Rstudio Cloud:
 
 ```{r, preview-file-size, echo=FALSE}
 # Daily data
-cat("dailyActivity_merged.csv", "=", sep = " ", file.info("dailyActivity_merged.csv")$size, "bytes", fill = TRUE)
-cat("dailyCalories_merged.csv", "=", sep = " ", file.info("dailyCalories_merged.csv")$size, "bytes", fill = TRUE)
-cat("dailyIntensities_merged.csv", "=", sep = " ", file.info("dailyIntensities_merged.csv")$size, "bytes", fill = TRUE)
-cat("dailySteps_merged.csv", "=", sep = " ", file.info("dailySteps_merged.csv")$size, "bytes", fill = TRUE)
-cat("sleepDay_merged.csv", "=", sep = " ", file.info("sleepDay_merged.csv")$size, "bytes", fill = TRUE)
-cat("weightLogInfo_merged.csv", "=", sep = " ", file.info("weightLogInfo_merged.csv")$size, "bytes", fill = TRUE)
+cat("dailyActivity_merged.csv", "=", sep = " ", file.info("fitbit_data/dailyActivity_merged.csv")$size, "bytes", fill = TRUE)
+cat("dailyCalories_merged.csv", "=", sep = " ", file.info("fitbit_data/dailyCalories_merged.csv")$size, "bytes", fill = TRUE)
+cat("dailyIntensities_merged.csv", "=", sep = " ", file.info("fitbit_data/dailyIntensities_merged.csv")$size, "bytes", fill = TRUE)
+cat("dailySteps_merged.csv", "=", sep = " ", file.info("fitbit_data/dailySteps_merged.csv")$size, "bytes", fill = TRUE)
+cat("sleepDay_merged.csv", "=", sep = " ", file.info("fitbit_data/sleepDay_merged.csv")$size, "bytes", fill = TRUE)
+cat("weightLogInfo_merged.csv", "=", sep = " ", file.info("fitbit_data/weightLogInfo_merged.csv")$size, "bytes", fill = TRUE)
 # Hourly data
-cat("hourlyCalories_merged.csv", "=", sep = " ", file.info("hourlyCalories_merged.csv")$size, "bytes", fill = TRUE)
-cat("hourlyIntensities_merged.csv", "=", sep = " ", file.info("hourlyIntensities_merged.csv")$size, "bytes", fill = TRUE)
-cat("hourlySteps_merged.csv", "=", sep = " ", file.info("hourlySteps_merged.csv")$size, "bytes", fill = TRUE)
+cat("hourlyCalories_merged.csv", "=", sep = " ", file.info("fitbit_data/hourlyCalories_merged.csv")$size, "bytes", fill = TRUE)
+cat("hourlyIntensities_merged.csv", "=", sep = " ", file.info("fitbit_data/hourlyIntensities_merged.csv")$size, "bytes", fill = TRUE)
+cat("hourlySteps_merged.csv", "=", sep = " ", file.info("fitbit_data/hourlySteps_merged.csv")$size, "bytes", fill = TRUE)
 # Minute data
-cat("minuteCaloriesNarrow_merged.csv", "=", sep = " ", file.info("minuteCaloriesNarrow_merged.csv")$size, "bytes", fill = TRUE)
-cat("minuteIntensitiesNarrow_merged.csv", "=", sep = " ", file.info("minuteIntensitiesNarrow_merged.csv")$size, "bytes", fill = TRUE)
-cat("minuteMETsNarrow_merged.csv", "=", sep = " ", file.info("minuteMETsNarrow_merged.csv")$size, "bytes", fill = TRUE)
-cat("minuteSleep_merged.csv", "=", sep = " ", file.info("minuteSleep_merged.csv")$size, "bytes", fill = TRUE)
-cat("minuteStepsNarrow_merged.csv", "=", sep = " ", file.info("minuteStepsNarrow_merged.csv")$size, "bytes", fill = TRUE)
+cat("minuteCaloriesNarrow_merged.csv", "=", sep = " ", file.info("fitbit_data/minuteCaloriesNarrow_merged.csv")$size, "bytes", fill = TRUE)
+cat("minuteIntensitiesNarrow_merged.csv", "=", sep = " ", file.info("fitbit_data/minuteIntensitiesNarrow_merged.csv")$size, "bytes", fill = TRUE)
+cat("minuteMETsNarrow_merged.csv", "=", sep = " ", file.info("fitbit_data/minuteMETsNarrow_merged.csv")$size, "bytes", fill = TRUE)
+cat("minuteSleep_merged.csv", "=", sep = " ", file.info("fitbit_data/minuteSleep_merged.csv")$size, "bytes", fill = TRUE)
+cat("minuteStepsNarrow_merged.csv", "=", sep = " ", file.info("fitbit_data/minuteStepsNarrow_merged.csv")$size, "bytes", fill = TRUE)
 ```
 
 Based on file sizes, it looks like the minute level data could cause issues with 
@@ -249,22 +249,22 @@ Let's start with loading our daily and hourly datasets. We'll create dataframes
 (df) for these now:  
 
 ```{r, load-datasets-pt-1, message=FALSE, results="hide", eval=TRUE}
-daily_activity <- read_csv("dailyActivity_merged.csv")
-daily_calories <- read_csv("dailyCalories_merged.csv")
-daily_intensities <- read_csv("dailyIntensities_merged.csv")
-daily_steps <- read_csv("dailySteps_merged.csv")
-daily_sleep <- read_csv("sleepDay_merged.csv")
-weight_log <- read_csv("weightLogInfo_merged.csv")
-hourly_calories <- read_csv("hourlyCalories_merged.csv")
-hourly_intensities <- read_csv("hourlyIntensities_merged.csv")
-hourly_steps <- read_csv("hourlySteps_merged.csv")
+daily_activity <- read_csv("fitbit_data/dailyActivity_merged.csv")
+daily_calories <- read_csv("fitbit_data/dailyCalories_merged.csv")
+daily_intensities <- read_csv("fitbit_data/dailyIntensities_merged.csv")
+daily_steps <- read_csv("fitbit_data/dailySteps_merged.csv")
+daily_sleep <- read_csv("fitbit_data/sleepDay_merged.csv")
+weight_log <- read_csv("fitbit_data/weightLogInfo_merged.csv")
+hourly_calories <- read_csv("fitbit_data/hourlyCalories_merged.csv")
+hourly_intensities <- read_csv("fitbit_data/hourlyIntensities_merged.csv")
+hourly_steps <- read_csv("fitbit_data/hourlySteps_merged.csv")
 ```
 <br>
 
 Since the minute data is huge, we're only going to import the smallest dataset:  
 
 ```{r, load-datasets-pt-2, message=FALSE, results="hide", eval=TRUE}
-minute_sleep <- read_csv("minuteSleep_merged.csv")
+minute_sleep <- read_csv("fitbit_data/minuteSleep_merged.csv")
 ```
 
 
@@ -2281,7 +2281,6 @@ weekly_moderate_p +
     )),
     xmin = 4.5, xmax = 6, ymin = 600, ymax = 1050
   )
-ggsave(file = "Moderate_activity_per_week.png")
 ```
 
 Now let's look at `weekly_vigorous_m` totals:  
@@ -2396,7 +2395,6 @@ weekly_vigorous_p +
     ymin = 600, 
     ymax = 1050
     )
-ggsave(file = "Vigorous_activity_per_week.png") 
 ```
 
 While the above graphs for moderate minutes and vigorous minutes are 
@@ -2516,7 +2514,7 @@ weekly_moderate_vigorous_p +
     ymin = 600, 
     ymax = 1050
   )
-ggsave(file = "Moderate_vigorous_activity_per_week.png")
+ggsave(filename = "Moderate_vigorous_activity_per_week_color.png", path = "images")
 # Create basic graph showing 154 totals in grey ---------------------------
 weekly_moderate_vigorous_p <- 
   ggplot(weekly_data, aes(x = week_number, y = weekly_mod_vig_m))
@@ -2581,7 +2579,7 @@ weekly_moderate_vigorous_p +
     legend.position = "none"
   ) +
   guides(color = guide_legend(override.aes = list(size = 3)))
-ggsave(file = "Moderate_vigorous_activity_per_week_154.png")
+ggsave(filename = "Moderate_vigorous_activity_per_week_gs.png", path = "images")
 ```
 
 There are some interesting discoveries here:
@@ -2698,7 +2696,7 @@ How do these smart device users group across the below three achievement rates?
 <br>
 
 <center>
-![Achievement Rate Groups](achievement_rate_groups.png)
+![Achievement Rate Groups](images/achievement_rate_groups.png)
 </center>
 
 <br>
