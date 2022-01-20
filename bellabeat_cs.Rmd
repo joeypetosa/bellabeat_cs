@@ -2152,7 +2152,7 @@ ggplot(daily_data, aes(x = lightly_active_m, y = sedentary_m)) +
 
 ## Active minutes   
 
-### Active minutes: key health metric  
+### A key health metric  
 
 Of all the metrics we've explored thus far, active minutes is the one we're 
 going to focus on moving forward. We'll use this section to generate our 
@@ -2676,7 +2676,7 @@ weekly_moderate_vigorous_p <-
         panel.spacing.x = unit(.75, "lines")
       )
   }
-ggsave(file = "activity_33.png")
+ggsave(file = "weekly_activity_33.png", path = "images")
 weekly_moderate_vigorous_p
 ```
 
@@ -2804,17 +2804,14 @@ personograph(
 
 ## Stakeholder presentation  
 
-Here is where we'll link to the shareholder presentation. My presentation 
-includes:  
+I've provided a link below for my presentation, which includes the following:  
 
 * A summary of my analysis  
 * Supporting visualizations and key findings  
-* Recommendations for marketing strategy within the Bellabeat App
+* Recommendations for marketing strategy within the Bellabeat App  
 
-[Google Slides; requires onl;ine access](https://docs.google.com/presentation/d/1iUSOOkS2ltHPzK16cE9teWgOwfBGd1UAC1KaZ_ucew4/present?slide=id.p)
 
-## Further exploration  
-
+[HTML](https://docs.google.com/presentation/d/1iUSOOkS2ltHPzK16cE9teWgOwfBGd1UAC1KaZ_ucew4/present?slide=id.p) (Google Slides; requires online access)
 
 
 
